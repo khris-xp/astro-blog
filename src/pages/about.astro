@@ -1,9 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pageTitle = 'About Me';
+
+const identity = {
+  firstName: 'Khris Bharmmano',
+  country: 'Thailand',
+  occupation: 'Student',
+  hobbies: ['Coding'],
+};
+
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro'];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const color = 'text-gray-800';
+const bold = 'font-bold';
+const uppercase = 'uppercase';
 ---
 
-<Layout title='about'>
-  <h1>About Me</h1>
+<Layout title={pageTitle}>
+  <h1 class='text-purple-500 text-lg'>{pageTitle}</h1>
   <h2>... and my new Astro site!</h2>
 
   <p>
@@ -15,4 +34,33 @@ import Layout from '../layouts/Layout.astro';
     This site will update as I complete more of the tutorial, so keep checking
     back and see how my journey is going!
   </p>
+
+  <p>Here are a few facts about me:</p>
+  <ul class={`${color} ${bold} ${uppercase}`}>
+    <li>My name is {identity.firstName}.</li>
+    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+        </li>
+      )
+    }
+  </ul>
+  <p>My skills are:</p>
+  <ul class='text-green-700 font-bold'>
+    {skills.map((skill) => <li>{skill}</li>)}
+  </ul>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+
+  {finished && <p>I finished this tutorial!</p>}
+
+  {
+    goal === 3 ? (
+      <p>My goal is to finish in 3 days.</p>
+    ) : (
+      <p>My goal is not 3 days.</p>
+    )
+  }
 </Layout>
