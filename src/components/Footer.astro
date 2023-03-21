@@ -1,0 +1,24 @@
+---
+import Socail from './Socail.astro';
+
+const facebook = 'https://www.facebook.com/khris.bharmmano/';
+const instagram = 'https://www.instagram.com/khris_xp';
+const github = 'https://github.com/khris-xp';
+---
+
+<footer class='bg-white rounded shadow dark:bg-gray-800'>
+  <div
+    class='w-full mx-auto container md:p-6 p-4 md:flex md:items-center md:justify-between'
+  >
+    <span class='text-sm text-gray-500 sm:text-center dark:text-gray-400'
+      >Astro Blog by khris-xp
+    </span>
+    <ul
+      class='flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0'
+    >
+      <Socail link={facebook} platform='Facebook' />
+      <Socail link={instagram} platform='Instagram' />
+      <Socail link={github} platform='Github' />
+    </ul>
+  </div>
+</footer>
